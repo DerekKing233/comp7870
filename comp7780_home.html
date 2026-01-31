@@ -1,43 +1,476 @@
 <!DOCTYPE html>
-<html lang="en">
-<head><meta charset="utf-8">
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>GreenWorld - Sustainable Living Starts Here</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --primary: #068049;
+  --secondary: #52b788;	
+  --accent: #95d5b2;
+  --dark: #1b4332;
+  --light: #d8f3dc;
+  --bg: #f1faee;
+}
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: var(--bg);
+  color: #333;
+  line-height: 1.6;
+}
 
-<!--    COMP 7780
-	Author: Hans Yip
-	Date:  09/01/2022
--->
-<title>Assignment 1</title>
+/* Navigation Bar */
+header {
+  background: white;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.navbar {
+  max-width: 1200px;
+  margin: 0 auto;	
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+}
+.logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: var(--primary);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.logo-icon {
+  width: 40px;
+  height: 40px;
+  background: var(--accent);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+}
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
+nav a {
+  color: var(--dark);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+}
+nav a:hover {
+  background: var(--light);
+  color: var(--primary);
+}
+.cart-icon {
+  background: var(--secondary);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  color: white;
+}
 
-<style type="text/css">
-	.center { display: block; margin-left: auto; margin-right: auto; }		
+/* Hero Section */
+.hero {
+  background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
+  color: white;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+.hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+}
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  opacity: 0.95;
+}
+.cta-button {
+  display: inline-block;
+  background: white;
+  color: var(--primary);
+  padding: 1rem 2.5rem;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.1rem;
+  transition: transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+.cta-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
+
+/* Developer Section */
+.developer-section {
+  background: white;
+  padding: 3rem 2rem;
+  text-align: center;
+}
+.developer-section h2 {
+  color: var(--primary);
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+.developer-list {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+.developer-card {
+  background: var(--bg);
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+  min-width: 200px;
+  transition: transform 0.3s;
+}
+.developer-card:hover {
+  transform: translateY(-5px);
+}
+.developer-card h3 {
+  color: var(--dark);
+  margin-bottom: 0.5rem;
+}
+.developer-card p {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+/* Features Section */
+.features {
+  max-width: 1200px;
+  margin: 4rem auto;
+  padding: 0 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+.feature-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  transition: transform 0.3s;
+}
+.feature-card:hover {
+  transform: translateY(-5px);
+}
+.feature-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+.feature-card h3 {
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+}
+
+/* Products Section */
+.products-section {
+  background: white;
+  padding: 4rem 2rem;
+}
+.section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  color: var(--primary);
+  margin-bottom: 3rem;
+}
+.products-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+.product-card {
+  background: var(--bg);
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.product-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+.product-image {
+  width: 100%;
+  height: 250px;
+  background: linear-gradient(135deg, var(--accent) 0%, var(--secondary) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4rem;
+}
+.product-info {
+  padding: 1.5rem;
+}
+.product-info h3 {
+  color: var(--dark);
+  margin-bottom: 0.5rem;
+}
+.product-info p {
+  color: #666;
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+}
+.product-price {
+  font-size: 1.5rem;
+  color: var(--primary);
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+.buy-button {
+  display: block;
+  width: 100%;
+  background: var(--secondary);
+  color: white;
+  padding: 0.8rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+  text-align: center;
+  text-decoration: none;
+}
+.buy-button:hover {
+  background: var(--primary);
+}
+
+/* Footer */
+footer {
+  background: var(--dark);
+  color: white;
+  padding: 3rem 2rem;
+  margin-top: 4rem;
+}
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+.footer-section h4 {
+  color: var(--accent);
+  margin-bottom: 1rem;
+}
+.footer-section ul {
+  list-style: none;
+}
+.footer-section a {
+  color: white;
+  text-decoration: none;
+  opacity: 0.8;
+  transition: opacity 0.3s;
+}
+.footer-section a:hover {
+  opacity: 1;
+  color: var(--accent);
+}
+.footer-bottom {
+  text-align: center;
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  opacity: 0.7;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  nav ul {
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: center;
+  }
+  .hero h1 {
+    font-size: 2rem;
+  }
+  .hero p {
+    font-size: 1rem;
+  }
+}
 </style>
-
 </head>
-
 <body>
+
 <header>
-	<img src="logo.png" class="center" width="300" height="100">
-	<h1 style="background-color:#0052cc; color:#ffffff; text-align:center">COMP 7780 Special Topics in Knowledge and Information Management <br>
-	Team no. 00, Team Name: HKBU team</h1>
-	<img src="cs_logo.png" width="300" height="200" class="center">
+  <div class="navbar">
+    <a href="comp7780_home.html" class="logo">
+        <img src="logo.png" alt="GreenWorld Logo" style="height: 40px; width: auto;">
+    </a>
+    <nav>
+      <ul>
+        <li><a href="comp7780_home.html">Home</a></li>
+        <li><a href="comp7780_product.html">Shop</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#" class="cart-icon">🛒 Cart (0)</a></li>
+      </ul>
+    </nav>
+	  <img src="cs_logo.png" alt="Partner Logo" style="height: 60px; width: auto;">
+  </div>
 </header>
 
-<section>
+<section class="hero">
+  <div class="hero-content">
+    <h1>🌍 Sustainable Living Starts with GreenWorld</h1>
+    <p>We are committed to providing 100% sustainable and eco-friendly products. Every purchase is an act of care for our planet.</p>
+    <a href="comp7780_product.html" class="cta-button">Shop Now</a>
+  </div>
+</section>
 
-	<article>
-		<h3>GreenWorld! Online Shop</h3>
-		<p>Our goal is to promote "Green Environment" by re-cycling the items that you no longer need or use and sell them to the public
-			for a discounted price.</p>
-		<p> All sales Final - No refund or exchange. </p>
-		<p> Once we received your payment, we will contact you for delivery.</p>
-	</article>
- 
-	<p><a href="comp7780_product.html">Ready to Order, Click here!</a></p>
+<section class="developer-section">
+  <h2>Development Team</h2>
+  <div class="developer-list">
+    <div class="developer-card">
+      <h3>👨‍💻 John Smith</h3>
+      <p>Lead Developer</p>
+      <p>john@greenworld.com</p>
+    </div>
+    <div class="developer-card">
+      <h3>👨‍💻 John Smith</h3>
+      <p>Lead Developer</p>
+      <p>john@greenworld.com</p>
+    </div>
+	<div class="developer-card">
+      <h3>👨‍💻 John Smith</h3>
+      <p>Lead Developer</p>
+      <p>john@greenworld.com</p>
+    </div>
+	<div class="developer-card">
+      <h3>👨‍💻 John Smith</h3>
+      <p>Lead Developer</p>
+      <p>john@greenworld.com</p>
+    </div>
+	<div class="developer-card">
+      <h3>👨‍💻 John Smith</h3>
+      <p>Lead Developer</p>
+      <p>john@greenworld.com</p>
+    </div>
+	<div class="developer-card">
+      <h3>👨‍💻 John Smith</h3>
+      <p>Lead Developer</p>
+      <p>john@greenworld.com</p>
+    </div>
+  </div>
+  	
+</section>
 
+<section class="features">
+  <div class="feature-card">
+    <div class="feature-icon">♻️</div>
+    <h3>100% Recyclable</h3>
+    <p>All products are made from recyclable materials, reducing environmental impact</p>
+  </div>
+  <div class="feature-card">
+    <div class="feature-icon">🌱</div>
+    <h3>Natural & Organic</h3>
+    <p>Using natural organic materials that are better for you and the planet</p>
+  </div>
+  <div class="feature-card">
+    <div class="feature-icon">🚚</div>
+    <h3>Carbon Neutral Shipping</h3>
+    <p>Eco-friendly packaging with carbon-neutral delivery methods</p>
+  </div>
+  <div class="feature-card">
+    <div class="feature-icon">💚</div>
+    <h3>Social Responsibility</h3>
+    <p>5% of every order is donated to environmental organizations</p>
+  </div>
+</section>
+
+<section class="products-section">
+  <h2 class="section-title">Featured Products</h2>
+  <div class="products-grid">
+    <div class="product-card">
+      <div class="product-image">👕</div>
+      <div class="product-info">
+        <h3>Organic Cotton T-Shirt</h3>
+        <p>Made from 100% organic cotton, soft, comfortable and breathable</p>
+        <div class="product-price">$29</div>
+        <a href="comp7780_product.html" class="buy-button">View Details</a>
+      </div>
+    </div>
+    <div class="product-card">
+      <div class="product-image">🧥</div>
+      <div class="product-info">
+        <h3>Recycled Fiber Jacket</h3>
+        <p>Eco-friendly jacket made from recycled plastic bottles</p>
+        <div class="product-price">$89</div>
+        <a href="comp7780_product.html" class="buy-button">View Details</a>
+      </div>
+    </div>
+    <div class="product-card">
+      <div class="product-image">👟</div>
+      <div class="product-info">
+        <h3>Eco-Friendly Sneakers</h3>
+        <p>Natural rubber sole with biodegradable upper material</p>
+        <div class="product-price">$75</div>
+        <a href="comp7780_product.html" class="buy-button">View Details</a>
+      </div>
+    </div>
+  </div>
 </section>
 
 <footer>
-	<p><img src="enews1.jpg" alt="hkbu Logo"> Contact me: hansyip@comp.hkbu.edu.hk</p>
+  <div class="footer-content">
+    <div class="footer-section">
+      <h4>About GreenWorld</h4>
+      <p>We are an e-commerce platform dedicated to promoting sustainable living, offering high-quality eco-friendly products.</p>
+    </div>
+    <div class="footer-section">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="comp7780_home.html">Home</a></li>
+        <li><a href="comp7780_product.html">Products</a></li>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-section">
+      <h4>Customer Service</h4>
+      <ul>
+        <li><a href="#">Shipping Info</a></li>
+        <li><a href="#">Return Policy</a></li>
+        <li><a href="#">FAQ</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+      </ul>
+    </div>
+    <div class="footer-section">
+      <h4>Contact Us</h4>
+      <p>📧 info@hkbu.greenworld.com</p>
+      <p>📍 Hong Kong SAR</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 GreenWorld. All rights reserved.</p>
+  </div>
 </footer>
 
 </body>
