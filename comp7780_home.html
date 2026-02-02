@@ -36,6 +36,7 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
+  gap: 1rem;
 }
 .logo {
   font-size: 1.8rem;
@@ -80,6 +81,17 @@ nav a:hover {
   color: white;
 }
 
+/* Header Team Identity */
+.team-identity {
+  text-align: right;
+  font-size: 0.85rem;
+  color: #666;
+  line-height: 1.3;
+}
+.team-identity strong {
+  color: var(--dark);
+}
+
 /* Hero Section */
 .hero {
   background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
@@ -116,45 +128,6 @@ nav a:hover {
 .cta-button:hover {
   transform: translateY(-3px);
   box-shadow: 0 6px 20px rgba(0,0,0,0.3);
-}
-
-/* Developer Section */
-.developer-section {
-  background: white;
-  padding: 3rem 2rem;
-  text-align: center;
-}
-.developer-section h2 {
-  color: var(--primary);
-  font-size: 2rem;
-  margin-bottom: 2rem;
-}
-.developer-list {
-  max-width: 800px;
-  margin: 0 auto;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 2rem;
-}
-.developer-card {
-  background: var(--bg);
-  padding: 1.5rem;
-  border-radius: 10px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-  min-width: 200px;
-  transition: transform 0.3s;
-}
-.developer-card:hover {
-  transform: translateY(-5px);
-}
-.developer-card h3 {
-  color: var(--dark);
-  margin-bottom: 0.5rem;
-}
-.developer-card p {
-  color: #666;
-  font-size: 0.9rem;
 }
 
 /* Features Section */
@@ -260,6 +233,45 @@ nav a:hover {
   background: var(--primary);
 }
 
+/* Developer Section */
+.developer-section {
+  background: white;
+  padding: 3rem 2rem;
+  text-align: center;
+}
+.developer-section h2 {
+  color: var(--primary);
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+.developer-list {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+}
+.developer-card {
+  background: var(--bg);
+  padding: 1.3rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+  min-width: 240px;
+  transition: transform 0.3s;
+}
+.developer-card:hover {
+  transform: translateY(-5px);
+}
+.developer-card h3 {
+  color: var(--dark);
+  margin-bottom: 0.4rem;
+}
+.developer-card p {
+  color: #666;
+  font-size: 0.92rem;
+}
+
 /* Footer */
 footer {
   background: var(--dark);
@@ -302,7 +314,7 @@ footer {
 @media (max-width: 768px) {
   .navbar {
     flex-direction: column;
-    gap: 1rem;
+    gap: 0.8rem;
   }
   nav ul {
     flex-direction: column;
@@ -315,6 +327,9 @@ footer {
   .hero p {
     font-size: 1rem;
   }
+  .team-identity {
+    text-align: center;
+  }
 }
 </style>
 </head>
@@ -323,85 +338,56 @@ footer {
 <header>
   <div class="navbar">
     <a href="comp7780_home.html" class="logo">
-        <img src="logo.png" alt="GreenWorld Logo" style="height: 40px; width: auto;">
+      <img src="logo.png" alt="GreenWorld Logo" style="height: 40px; width: auto;">
     </a>
+
     <nav>
       <ul>
         <li><a href="comp7780_home.html">Home</a></li>
         <li><a href="comp7780_product.html">Shop</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#" class="cart-icon">🛒 Cart (0)</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="comp7780_product.html" class="cart-icon">🛒 Cart</a></li>
       </ul>
     </nav>
-	  <img src="cs_logo.png" alt="Partner Logo" style="height: 60px; width: auto;">
+
+    <img src="cs_logo.png" alt="Partner Logo" style="height: 60px; width: auto;"> 
+  
+
+    <div class="team-identity">
+      <div><strong>Team No.:</strong> ____</div>
+      <div><strong>Team Name:</strong> jello(∠・ω< )⌒☆</div>
+    </div>
   </div>
 </header>
 
 <section class="hero">
   <div class="hero-content">
     <h1>🌍 Sustainable Living Starts with GreenWorld</h1>
-    <p>We are committed to providing 100% sustainable and eco-friendly products. Every purchase is an act of care for our planet.</p>
+    <p>We are committed to providing sustainable and eco-friendly products. Every purchase is an act of care for our planet.</p>
     <a href="comp7780_product.html" class="cta-button">Shop Now</a>
   </div>
-</section>
-
-<section class="developer-section">
-  <h2>Development Team</h2>
-  <div class="developer-list">
-    <div class="developer-card">
-      <h3>👨‍💻 Ye YaoZhang</h3>
-      <p>Developer</p>
-      <p>john@greenworld.com</p>
-    </div>
-    <div class="developer-card">
-      <h3>👨‍💻 Tan BaiJi</h3>
-      <p>Developer</p>
-      <p>john@greenworld.com</p>
-    </div>
-	<div class="developer-card">
-      <h3>👨‍💻 Yang ShiYu</h3>
-      <p>Developer</p>
-      <p>john@greenworld.com</p>
-    </div>
-	<div class="developer-card">
-      <h3>👨‍💻 Zhu JiaRui</h3>
-      <p>Developer</p>
-      <p>john@greenworld.com</p>
-    </div>
-	<div class="developer-card">
-      <h3>👨‍💻 Tan ShaoBin</h3>
-      <p>Developer</p>
-      <p>john@greenworld.com</p>
-    </div>
-	<div class="developer-card">
-      <h3>👨‍💻 Wang ZiMing</h3>
-      <p>Developer</p>
-      <p>john@greenworld.com</p>
-    </div>
-  </div>
-  	
 </section>
 
 <section class="features">
   <div class="feature-card">
     <div class="feature-icon">♻️</div>
     <h3>100% Recyclable</h3>
-    <p>All products are made from recyclable materials, reducing environmental impact</p>
+    <p>All products are made from recyclable materials, reducing environmental impact.</p>
   </div>
   <div class="feature-card">
     <div class="feature-icon">🌱</div>
     <h3>Natural & Organic</h3>
-    <p>Using natural organic materials that are better for you and the planet</p>
+    <p>Natural materials that are better for you and the planet.</p>
   </div>
   <div class="feature-card">
-    <div class="feature-icon">🚚</div>
-    <h3>Carbon Neutral Shipping</h3>
-    <p>Eco-friendly packaging with carbon-neutral delivery methods</p>
+    <div class="feature-icon">🗂️</div>
+    <h3>SDLC Deliverables</h3>
+    <p>Timeline, Issue Log, HLD/DDD, Test Plan, Test Cases, Defect Log.</p>
   </div>
   <div class="feature-card">
-    <div class="feature-icon">💚</div>
-    <h3>Social Responsibility</h3>
-    <p>5% of every order is donated to environmental organizations</p>
+    <div class="feature-icon">🔗</div>
+    <h3>Requirement Alignment</h3>
+    <p>Implementation supports navigation between Home and Product pages.</p>
   </div>
 </section>
 
@@ -412,7 +398,7 @@ footer {
       <div class="product-image">👕</div>
       <div class="product-info">
         <h3>Organic Cotton T-Shirt</h3>
-        <p>Made from 100% organic cotton, soft, comfortable and breathable</p>
+        <p>Made from 100% organic cotton, soft, comfortable and breathable.</p>
         <div class="product-price">$29</div>
         <a href="comp7780_product.html" class="buy-button">View Details</a>
       </div>
@@ -421,7 +407,7 @@ footer {
       <div class="product-image">🧥</div>
       <div class="product-info">
         <h3>Recycled Fiber Jacket</h3>
-        <p>Eco-friendly jacket made from recycled plastic bottles</p>
+        <p>Eco-friendly jacket made from recycled plastic bottles.</p>
         <div class="product-price">$89</div>
         <a href="comp7780_product.html" class="buy-button">View Details</a>
       </div>
@@ -430,10 +416,40 @@ footer {
       <div class="product-image">👟</div>
       <div class="product-info">
         <h3>Eco-Friendly Sneakers</h3>
-        <p>Natural rubber sole with biodegradable upper material</p>
+        <p>Natural rubber sole with biodegradable upper material.</p>
         <div class="product-price">$75</div>
         <a href="comp7780_product.html" class="buy-button">View Details</a>
       </div>
+    </div>
+  </div>
+</section>
+
+<section class="developer-section">
+  <h2>Team Members</h2>
+  <div class="developer-list">
+    <div class="developer-card">
+      <h3>👨‍💼 Ye YaoZhang</h3>
+      <p>Project Manager</p>
+    </div>
+    <div class="developer-card">
+      <h3>🧑‍💼 Zhu JiaRui</h3>
+      <p>Analyst</p>
+    </div>
+    <div class="developer-card">
+      <h3>🧪 YANG Shiyu</h3>
+      <p>Tester</p>
+    </div>
+    <div class="developer-card">
+      <h3>👨‍💻 Tan ShaoBin</h3>
+      <p>Developer</p>
+    </div>
+    <div class="developer-card">
+      <h3>🧑‍💼 TAN BaiJi</h3>
+      <p>Analyst</p>
+    </div>
+    <div class="developer-card">
+      <h3>👨‍💻 Wang ZiMing</h3>
+      <p>Developer</p>
     </div>
   </div>
 </section>
@@ -442,17 +458,22 @@ footer {
   <div class="footer-content">
     <div class="footer-section" id="about">
       <h4>About GreenWorld</h4>
-      <p>We are an e-commerce platform dedicated to promoting sustainable living, offering high-quality eco-friendly products.</p>
+      <p>
+        GreenWorld is an e-commerce platform dedicated to promoting sustainable living by offering eco-friendly products.
+        Established Jan 1, 2026 in Hong Kong SAR.
+      </p>
     </div>
+
     <div class="footer-section">
       <h4>Quick Links</h4>
       <ul>
         <li><a href="comp7780_home.html">Home</a></li>
         <li><a href="comp7780_product.html">Products</a></li>
         <li><a href="#about">About</a></li>
-        <li><a href="#">Contact</a></li>
+        <li><a href="#contact">Contact</a></li>
       </ul>
     </div>
+
     <div class="footer-section">
       <h4>Customer Service</h4>
       <ul>
@@ -462,12 +483,14 @@ footer {
         <li><a href="#">Privacy Policy</a></li>
       </ul>
     </div>
-    <div class="footer-section">
+
+    <div class="footer-section" id="contact">
       <h4>Contact Us</h4>
       <p>📧 info@hkbu.greenworld.com</p>
       <p>📍 Hong Kong SAR</p>
     </div>
   </div>
+
   <div class="footer-bottom">
     <p>&copy; 2026 GreenWorld. All rights reserved.</p>
   </div>
