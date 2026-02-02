@@ -330,6 +330,18 @@ footer {
   .team-identity {
     text-align: center;
   }
+  .right-box{
+  display:flex;
+  align-items:center;
+  gap:1rem;
+}
+@media (max-width: 768px){
+  .right-box{
+    flex-direction:column;
+    gap:0.3rem;
+  }
+}
+
 }
 </style>
 </head>
@@ -350,14 +362,14 @@ footer {
       </ul>
     </nav>
 
-    <img src="cs_logo.png" alt="Partner Logo" style="height: 60px; width: auto;"> 
-  
-
-    <div class="team-identity">
-      <div><strong>Team No.:</strong> 8</div>
-      <div><strong>Team Name:</strong> jello(∠・ω< )⌒☆</div>
-    </div>
+    <div class="right-box">
+  <img src="cs_logo.png" alt="Partner Logo" style="height: 60px; width: auto;">
+  <div class="team-identity">
+    <div><strong>Team No.:</strong> 8</div>
+    <div><strong>Team Name:</strong> jello(∠・ω< )⌒☆</div>
   </div>
+</div>
+
 </header>
 
 <section class="hero">
