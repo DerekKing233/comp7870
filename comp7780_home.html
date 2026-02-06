@@ -8,7 +8,7 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
 :root {
   --primary: #068049;
-  --secondary: #52b788;	
+  --secondary: #52b788;
   --accent: #95d5b2;
   --dark: #1b4332;
   --light: #d8f3dc;
@@ -21,7 +21,7 @@ body {
   line-height: 1.6;
 }
 
-/* Navigation Bar */
+/* ---------- Header / Navbar ---------- */
 header {
   background: white;
   box-shadow: 0 2px 10px rgba(0,0,0,0.1);
@@ -31,44 +31,33 @@ header {
 }
 .navbar {
   max-width: 1200px;
-  margin: 0 auto;	
+  margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
   gap: 1rem;
+  flex-wrap: wrap;
 }
 .logo {
-  font-size: 1.8rem;
-  font-weight: bold;
-  color: var(--primary);
   text-decoration: none;
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-}
-.logo-icon {
-  width: 40px;
-  height: 40px;
-  background: var(--accent);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.5rem;
 }
 nav ul {
   display: flex;
   list-style: none;
-  gap: 2rem;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 nav a {
   color: var(--dark);
   text-decoration: none;
-  font-weight: 500;
-  transition: color 0.3s;
+  font-weight: 600;
+  transition: background 0.3s, color 0.3s;
   padding: 0.5rem 1rem;
-  border-radius: 5px;
+  border-radius: 8px;
 }
 nav a:hover {
   background: var(--light);
@@ -76,40 +65,41 @@ nav a:hover {
 }
 .cart-icon {
   background: var(--secondary);
-  padding: 0.5rem 1rem;
+  color: #fff;
   border-radius: 20px;
-  color: white;
 }
 
-/* Header Team Identity */
+/* Right box: partner logo + team identity */
+.right-box{
+  display:flex;
+  align-items:center;
+  gap:1rem;
+  margin-left:auto;
+}
 .team-identity {
   text-align: right;
   font-size: 0.85rem;
   color: #666;
   line-height: 1.3;
+  white-space: nowrap;
 }
-.team-identity strong {
-  color: var(--dark);
-}
+.team-identity strong { color: var(--dark); }
 
-/* Hero Section */
+/* ---------- Hero ---------- */
 .hero {
   background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
   color: white;
   padding: 4rem 2rem;
   text-align: center;
 }
-.hero-content {
-  max-width: 800px;
-  margin: 0 auto;
-}
+.hero-content { max-width: 900px; margin: 0 auto; }
 .hero h1 {
   font-size: 3rem;
   margin-bottom: 1rem;
   text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
 }
 .hero p {
-  font-size: 1.2rem;
+  font-size: 1.15rem;
   margin-bottom: 2rem;
   opacity: 0.95;
 }
@@ -122,7 +112,7 @@ nav a:hover {
   text-decoration: none;
   font-weight: bold;
   font-size: 1.1rem;
-  transition: transform 0.3s, box-shadow 0.3s;
+  transition: transform 0.25s, box-shadow 0.25s;
   box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
 .cta-button:hover {
@@ -130,59 +120,57 @@ nav a:hover {
   box-shadow: 0 6px 20px rgba(0,0,0,0.3);
 }
 
-/* Features Section */
-.features {
+/* ---------- Section spacing (关键：避免“看起来挤到一行”) ---------- */
+.section {
   max-width: 1200px;
-  margin: 4rem auto;
+  margin: 0 auto;
   padding: 0 2rem;
+}
+.section-block {
+  margin: 3.5rem auto;
+}
+
+/* ---------- Features (只剩两张卡也不破版) ---------- */
+.features-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 2rem;
+  grid-template-columns: repeat(2, minmax(250px, 1fr));
+  align-items: stretch;
 }
 .feature-card {
   background: white;
   padding: 2rem;
-  border-radius: 15px;
+  border-radius: 16px;
   text-align: center;
   box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-  transition: transform 0.3s;
+  transition: transform 0.25s;
 }
-.feature-card:hover {
-  transform: translateY(-5px);
-}
-.feature-icon {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-}
-.feature-card h3 {
-  color: var(--primary);
-  margin-bottom: 0.5rem;
-}
+.feature-card:hover { transform: translateY(-5px); }
+.feature-icon { font-size: 3rem; margin-bottom: 1rem; }
+.feature-card h3 { color: var(--primary); margin-bottom: 0.6rem; }
 
-/* Products Section */
+/* ---------- Products ---------- */
 .products-section {
   background: white;
-  padding: 4rem 2rem;
+  padding: 4rem 0;
 }
 .section-title {
   text-align: center;
   font-size: 2.5rem;
   color: var(--primary);
-  margin-bottom: 3rem;
+  margin-bottom: 2.5rem;
 }
 .products-grid {
-  max-width: 1200px;
-  margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(3, minmax(260px, 1fr));
   gap: 2rem;
 }
 .product-card {
   background: var(--bg);
-  border-radius: 15px;
+  border-radius: 16px;
   overflow: hidden;
   box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-  transition: transform 0.3s, box-shadow 0.3s;
+  transition: transform 0.25s, box-shadow 0.25s;
 }
 .product-card:hover {
   transform: translateY(-8px);
@@ -190,89 +178,66 @@ nav a:hover {
 }
 .product-image {
   width: 100%;
-  height: 250px;
+  height: 240px;
   background: linear-gradient(135deg, var(--accent) 0%, var(--secondary) 100%);
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 4rem;
 }
-.product-info {
-  padding: 1.5rem;
-}
-.product-info h3 {
-  color: var(--dark);
-  margin-bottom: 0.5rem;
-}
-.product-info p {
-  color: #666;
-  margin-bottom: 1rem;
-  font-size: 0.95rem;
-}
-.product-price {
-  font-size: 1.5rem;
-  color: var(--primary);
-  font-weight: bold;
-  margin-bottom: 1rem;
-}
+.product-info { padding: 1.5rem; }
+.product-info h3 { color: var(--dark); margin-bottom: 0.5rem; }
+.product-info p { color: #666; margin-bottom: 1rem; font-size: 0.95rem; }
+.product-price { font-size: 1.5rem; color: var(--primary); font-weight: bold; margin-bottom: 1rem; }
 .buy-button {
   display: block;
   width: 100%;
   background: var(--secondary);
   color: white;
-  padding: 0.8rem;
-  border: none;
-  border-radius: 8px;
+  padding: 0.85rem;
+  border-radius: 10px;
   font-weight: bold;
-  cursor: pointer;
-  transition: background 0.3s;
-  text-align: center;
   text-decoration: none;
-}
-.buy-button:hover {
-  background: var(--primary);
-}
-
-/* Developer Section */
-.developer-section {
-  background: white;
-  padding: 3rem 2rem;
   text-align: center;
+  transition: background 0.25s;
 }
-.developer-section h2 {
+.buy-button:hover { background: var(--primary); }
+
+/* ---------- Team Members ---------- */
+.team-section {
+  background: white;
+  padding: 3.5rem 0;
+}
+.team-title {
+  text-align: center;
   color: var(--primary);
   font-size: 2rem;
   margin-bottom: 2rem;
 }
-.developer-list {
-  max-width: 900px;
-  margin: 0 auto;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+.team-grid {
+  display: grid;
   gap: 1.5rem;
+  grid-template-columns: repeat(3, minmax(240px, 1fr));
 }
-.developer-card {
+.member-card {
   background: var(--bg);
-  padding: 1.3rem;
-  border-radius: 10px;
+  border-radius: 14px;
+  padding: 1.25rem 1.3rem;
   box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-  min-width: 240px;
-  transition: transform 0.3s;
+  text-align: center;
 }
-.developer-card:hover {
-  transform: translateY(-5px);
-}
-.developer-card h3 {
+.member-card h3 {
   color: var(--dark);
   margin-bottom: 0.4rem;
+  font-size: 1.1rem;
 }
-.developer-card p {
+.member-card p {
   color: #666;
-  font-size: 0.92rem;
+  font-size: 0.95rem;
+  margin: 0.2rem 0;
 }
 
-/* Footer */
+/* ---------- Footer ---------- */
 footer {
   background: var(--dark);
   color: white;
@@ -290,14 +255,12 @@ footer {
   color: var(--accent);
   margin-bottom: 1rem;
 }
-.footer-section ul {
-  list-style: none;
-}
+.footer-section ul { list-style: none; padding-left: 0; }
 .footer-section a {
   color: white;
   text-decoration: none;
-  opacity: 0.8;
-  transition: opacity 0.3s;
+  opacity: 0.85;
+  transition: opacity 0.25s, color 0.25s;
 }
 .footer-section a:hover {
   opacity: 1;
@@ -308,40 +271,24 @@ footer {
   margin-top: 2rem;
   padding-top: 2rem;
   border-top: 1px solid rgba(255,255,255,0.1);
-  opacity: 0.7;
+  opacity: 0.75;
 }
 
+/* ---------- Responsive ---------- */
+@media (max-width: 992px) {
+  .products-grid { grid-template-columns: repeat(2, minmax(240px, 1fr)); }
+  .team-grid { grid-template-columns: repeat(2, minmax(240px, 1fr)); }
+}
 @media (max-width: 768px) {
-  .navbar {
-    flex-direction: column;
-    gap: 0.8rem;
-  }
-  nav ul {
-    flex-direction: column;
-    gap: 0.5rem;
-    text-align: center;
-  }
-  .hero h1 {
-    font-size: 2rem;
-  }
-  .hero p {
-    font-size: 1rem;
-  }
-  .team-identity {
-    text-align: center;
-  }
-  .right-box{
-  display:flex;
-  align-items:center;
-  gap:1rem;
-}
-@media (max-width: 768px){
-  .right-box{
-    flex-direction:column;
-    gap:0.3rem;
-  }
-}
-
+  .navbar { flex-direction: column; }
+  nav ul { flex-direction: column; align-items: center; }
+  .right-box { flex-direction: column; margin-left: 0; }
+  .team-identity { text-align: center; }
+  .hero h1 { font-size: 2rem; }
+  .hero p { font-size: 1rem; }
+  .features-grid { grid-template-columns: 1fr; }
+  .products-grid { grid-template-columns: 1fr; }
+  .team-grid { grid-template-columns: 1fr; }
 }
 </style>
 </head>
@@ -363,13 +310,13 @@ footer {
     </nav>
 
     <div class="right-box">
-  <img src="cs_logo.png" alt="Partner Logo" style="height: 60px; width: auto;">
-  <div class="team-identity">
-    <div><strong>Team No.:</strong> 8</div>
-    <div><strong>Team Name:</strong> jello(∠・ω< )⌒☆</div>
+      <img src="cs_logo.png" alt="Partner Logo" style="height: 60px; width: auto;">
+      <div class="team-identity">
+        <div><strong>Team No.:</strong> 8</div>
+        <div><strong>Team Name:</strong> jello(∠・ω&lt; )⌒☆</div>
+      </div>
+    </div>
   </div>
-</div>
-
 </header>
 
 <section class="hero">
@@ -380,94 +327,95 @@ footer {
   </div>
 </section>
 
-<section class="features">
-  <div class="feature-card">
-    <div class="feature-icon">♻️</div>
-    <h3>100% Recyclable</h3>
-    <p>All products are made from recyclable materials, reducing environmental impact.</p>
-  </div>
-  <div class="feature-card">
-    <div class="feature-icon">🌱</div>
-    <h3>Natural & Organic</h3>
-    <p>Natural materials that are better for you and the planet.</p>
-  </div>
-  <div class="feature-card">
-    <div class="feature-icon">🗂️</div>
-    <h3>SDLC Deliverables</h3>
-    <p>Timeline, Issue Log, HLD/DDD, Test Plan, Test Cases, Defect Log.</p>
-  </div>
-  <div class="feature-card">
-    <div class="feature-icon">🔗</div>
-    <h3>Requirement Alignment</h3>
-    <p>Implementation supports navigation between Home and Product pages.</p>
+<!-- Features (只保留两张卡) -->
+<section class="section section-block">
+  <div class="features-grid">
+    <div class="feature-card">
+      <div class="feature-icon">♻️</div>
+      <h3>100% Recyclable</h3>
+      <p>All products are made from recyclable materials, reducing environmental impact.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🌱</div>
+      <h3>Natural & Organic</h3>
+      <p>Natural materials that are better for you and the planet.</p>
+    </div>
   </div>
 </section>
 
+<!-- Products -->
 <section class="products-section">
-  <h2 class="section-title">Featured Products</h2>
-  <div class="products-grid">
-    <div class="product-card">
-      <div class="product-image">👕</div>
-      <div class="product-info">
-        <h3>Organic Cotton T-Shirt</h3>
-        <p>Made from 100% organic cotton, soft, comfortable and breathable.</p>
-        <div class="product-price">$29</div>
-        <a href="comp7780_product.html" class="buy-button">View Details</a>
+  <div class="section">
+    <h2 class="section-title">Featured Products</h2>
+    <div class="products-grid">
+      <div class="product-card">
+        <div class="product-image">👕</div>
+        <div class="product-info">
+          <h3>Organic Cotton T-Shirt</h3>
+          <p>Made from 100% organic cotton, soft, comfortable and breathable.</p>
+          <div class="product-price">$29</div>
+          <a href="comp7780_product.html" class="buy-button">View Details</a>
+        </div>
       </div>
-    </div>
-    <div class="product-card">
-      <div class="product-image">🧥</div>
-      <div class="product-info">
-        <h3>Recycled Fiber Jacket</h3>
-        <p>Eco-friendly jacket made from recycled plastic bottles.</p>
-        <div class="product-price">$89</div>
-        <a href="comp7780_product.html" class="buy-button">View Details</a>
+
+      <div class="product-card">
+        <div class="product-image">🧥</div>
+        <div class="product-info">
+          <h3>Recycled Fiber Jacket</h3>
+          <p>Eco-friendly jacket made from recycled plastic bottles.</p>
+          <div class="product-price">$89</div>
+          <a href="comp7780_product.html" class="buy-button">View Details</a>
+        </div>
       </div>
-    </div>
-    <div class="product-card">
-      <div class="product-image">👟</div>
-      <div class="product-info">
-        <h3>Eco-Friendly Sneakers</h3>
-        <p>Natural rubber sole with biodegradable upper material.</p>
-        <div class="product-price">$75</div>
-        <a href="comp7780_product.html" class="buy-button">View Details</a>
+
+      <div class="product-card">
+        <div class="product-image">👟</div>
+        <div class="product-info">
+          <h3>Eco-Friendly Sneakers</h3>
+          <p>Natural rubber sole with biodegradable upper material.</p>
+          <div class="product-price">$75</div>
+          <a href="comp7780_product.html" class="buy-button">View Details</a>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="developer-section">
-  <h2>Team Members</h2>
-  <div class="developer-list">
-    <div class="developer-card">
-      <h3>👨‍💼 Ye YaoZhang</h3>
-      <p>Project Manager</p>
-      <p>25450174</p>
-    </div>
-    <div class="developer-card">
-      <h3>🧑‍💼 Zhu JiaRui</h3>
-      <p>Analyst</p>
-      <p>25427989</p>
-    </div>
-    <div class="developer-card">
-      <h3>🧪 YANG Shiyu</h3>
-      <p>Tester</p>
-      <p>25469592</p>
-    </div>
-    <div class="developer-card">
-      <h3>👨‍💻 Tan ShaoBin</h3>
-      <p>Developer</p>
-      <p>25441655</p>
-    </div>
-    <div class="developer-card">
-      <h3>🧑‍💼 TAN BaiJi</h3>
-      <p>Analyst</p>
-      <p>25437526</p>
-    </div>
-    <div class="developer-card">
-      <h3>👨‍💻 Wang ZiMing</h3>
-      <p>Developer</p>
-      <p>25420976</p>
+<!-- Team -->
+<section class="team-section">
+  <div class="section">
+    <h2 class="team-title">Team Members</h2>
+    <div class="team-grid">
+      <div class="member-card">
+        <h3>👨‍💼 Ye YaoZhang</h3>
+        <p>Project Manager</p>
+        <p>25450174</p>
+      </div>
+      <div class="member-card">
+        <h3>🧑‍💼 Zhu JiaRui</h3>
+        <p>Analyst</p>
+        <p>25427989</p>
+      </div>
+      <div class="member-card">
+        <h3>🧪 YANG Shiyu</h3>
+        <p>Tester</p>
+        <p>25469592</p>
+      </div>
+      <div class="member-card">
+        <h3>👨‍💻 Tan ShaoBin</h3>
+        <p>Developer</p>
+        <p>25441655</p>
+      </div>
+      <div class="member-card">
+        <h3>🧑‍💼 TAN BaiJi</h3>
+        <p>Analyst</p>
+        <p>25437526</p>
+      </div>
+      <div class="member-card">
+        <h3>👨‍💻 Wang ZiMing</h3>
+        <p>Developer</p>
+        <p>25420976</p>
+      </div>
     </div>
   </div>
 </section>
